@@ -240,8 +240,8 @@ html { scroll-behavior: smooth; }
 /* --- mini table-of-contents under the intro ------------------ */
 .run-index ul {
   margin: 1.5rem 0 2rem;          /* space above & below */
-  padding: 0;
-  list-style: none;               /* kill bullets */
+  padding-left: 1rem;
+  list-style: decimal;               /* kill bullets */
   display: flex;
   flex-direction: column;   /* vertical stack */
   gap: .5rem;               /* space between items *//* row gap | column gap */
@@ -302,7 +302,7 @@ html { scroll-behavior: smooth; }
 
 /* list inside each subsection */
 .blog-index ul {
-  list-style: none;
+  list-style: decimal;
   padding-left: 1rem;     /* small indent under sub-heading */
   margin: 0 0 .75rem;
   display: flex;
