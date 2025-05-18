@@ -163,3 +163,199 @@ h2 {
 span.highlight {
   background-color: #ffffd0;
 }
+
+/* simple flex layout for each running entry */
+.entry {
+  display: flex;
+  flex-wrap: wrap;          /* stacks on small screens */
+  gap: 2rem;                /* space between text and image */
+  margin-block: 2.5rem;
+}
+
+.entry__text {
+  flex: 1 1 60ch;           /* grow/shrink, ideal width */
+  min-width: 280px;
+}
+
+.entry__image {
+  flex: 0 1 320px;          /* keeps image within ~320 px */
+  max-width: 100%;
+  object-fit: cover;
+  border-radius: 6px;       /* optional: soft corners */
+}
+
+
+/* === Running page layout helpers ============================ */
+
+/* Centres the whole column and limits max width (matches your screenshot) */
+.run-wrapper {
+  max-width: 800px;
+  margin-inline: auto;        /* centres horizontally */
+  padding-inline: 1rem;       /* little breathing room on small screens */
+}
+
+/* h1 style can stay global; this just recentres if needed */
+.run-title { text-align: center; }
+
+/* Flex container for each race entry */
+/* Default: stacks on small screens */
+.run-entry {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-block: 3rem;
+}
+
+/* ≥768 px: force side-by-side */
+@media (min-width: 768px) {
+  .run-entry   { flex-wrap: nowrap; }
+  .run-text    { flex: 1 1 0; }      /* shrinkable text */
+  .run-figure  { flex: 0 0 320px; }  /* fixed-width image */
+}
+
+
+/* Text section grows to fill space */
+.run-text {
+  flex: 1 1 60ch;             /* 60 ch = comfortable reading width */
+  min-width: 280px;
+}
+
+/* Figure / image section shrinks if space is tight */
+.run-figure {
+  flex: 0 1 320px;            /* never wider than about 320 px */
+  margin: 0;                  /* kill default <figure> margins */
+}
+
+.run-figure img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;          /* tidy crop if aspect ≠ container */
+  border-radius: 4px;         /* optional aesthetic */
+}
+
+
+/* Smooth scrolling (nice UX) */
+html { scroll-behavior: smooth; }
+
+/* --- mini table-of-contents under the intro ------------------ */
+.run-index ul {
+  margin: 1.5rem 0 2rem;          /* space above & below */
+  padding: 0;
+  list-style: none;               /* kill bullets */
+  display: flex;
+  flex-direction: column;   /* vertical stack */
+  gap: .5rem;               /* space between items *//* row gap | column gap */
+  font-weight: 700;               /* make links stand out */
+}
+
+.run-index a {
+  color: #1772d0;                 /* matches site links */
+  text-decoration: none;
+}
+
+.run-index a:hover,
+.run-index a:focus {
+  color: #f09228;                 /* your existing hover colour */
+  text-decoration: underline;
+}
+
+
+/* smooth scroll for in-page links */
+html { scroll-behavior: smooth; }
+
+/* === layout identical to running page ========================= */
+.blog-wrapper {           /* centres & clamps width */
+  max-width: 800px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+.blog-title { text-align: center; }
+
+.blog-entry {
+  display: flex;
+  flex-wrap: wrap;        /* stacks on mobile */
+  gap: 2rem;
+  margin-block: 3rem;
+}
+
+.blog-text   { flex: 1 1 0; min-width: 280px; }
+.blog-figure { flex: 0 0 320px; margin: 0; }
+
+.blog-figure img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* === table-of-contents with sub-headings ====================== */
+.blog-index {
+  margin: 1.5rem 0 2rem;
+}
+
+.blog-index h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 1rem 0 .25rem;
+}
+
+/* list inside each subsection */
+.blog-index ul {
+  list-style: none;
+  padding-left: 1rem;     /* small indent under sub-heading */
+  margin: 0 0 .75rem;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  font-weight: 700;
+}
+
+.blog-index a {
+  color: #1772d0;
+  text-decoration: none;
+}
+
+.blog-index a:hover,
+.blog-index a:focus {
+  color: #f09228;
+  text-decoration: underline;
+}
+
+/* centred section titles that sit between the index and the entries */
+.blog-section-title {
+  text-align: center;
+  font-size: 1.7rem;   /* tweak if you want bigger/smaller */
+  font-weight: 700;
+  margin: 2.5rem 0 1.5rem;
+}
+
+
+/* === Home page layout (mirrors run/blog pattern) ============= */
+.home-wrapper {
+  max-width: 800px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+.home-entry {
+  display: flex;
+  flex-wrap: wrap;        /* stacks on small screens */
+  gap: 2rem;
+  margin-block: 3rem;
+}
+
+.home-text   { flex: 1 1 0; min-width: 280px; }
+.home-figure { flex: 0 0 320px; margin: 0; }
+
+.home-figure img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.home-title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
